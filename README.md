@@ -67,14 +67,14 @@ Initialize Terraform:
 
 Review Terraform Plan (Optional):
 
-terraform plan
+```terraform plan```
 
 Apply Terraform Changes:
 
-```terraform apply
+```terraform apply```
 
 Confirm Changes:
-Type yes when prompted to confirm the Terraform changes.```
+Type yes when prompted to confirm the Terraform changes.
 
 
 Verify Infrastructure:
@@ -82,10 +82,9 @@ Once Terraform applies the changes successfully, verify the infrastructure in th
 Destroy Infrastructure (Optional):
 If you want to tear down the infrastructure, you can use:
 
-```terraform destroy
+```terraform destroy```
 
-Type yes when prompted to confirm destruction.```
-
+Type yes when prompted to confirm destruction.
 
 ## Notes
 
