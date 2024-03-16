@@ -80,6 +80,7 @@ Type yes when prompted to confirm the Terraform changes.
 Verify Infrastructure:
 Once Terraform applies the changes successfully, verify the infrastructure in the AWS Management Console.
 Destroy Infrastructure (Optional):
+
 If you want to tear down the infrastructure, you can use:
 
 ```terraform destroy```
