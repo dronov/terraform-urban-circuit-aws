@@ -10,45 +10,52 @@ The task involves addressing the missing PCI-DSS certification requirements (1.3
 Implement inbound traffic restrictions to limit access to specific IP addresses.
 Restrict outbound traffic to only necessary destinations.
 
-## Architecture:
-
-                      +-----------------------+
-                      |                       |
-                      |     Application       |
-                      |     EC2 Instance      |
-                      |                       |
-                      +-----------+-----------+
-                                  |
-                                  |
-                         +--------v---------+
-                         |                  |
-                         |     MySQL        |
-                         |     EC2 Instance |
-                         |                  |
-                         +--------+---------+
-                                  |
-                                  |
-                         +--------v---------+
-                         |                  |
-                         |   Application    |
-                         |   Load Balancer  |
-                         |   (ALB)          |
-                         |                  |
-                         +--------+---------+
-                                  |
-                         +--------v---------+
-                         |                  |
-                         |      Subnets     |
-                         |      (Public)    |
-                         |                  |
-                         +--------+---------+
-                                  |
-                         +--------v---------+
-                         |                  |
-                         |       VPC        |
-                         |                  |
-                         +------------------+
-
+## Possible architecture:
+                      +----------------------------------+
+                      |                                  |
+                      |              Internet            |
+                      |                                  |
+                      +------------------+---------------+
+                                         |
+                      +------------------+---------------+
+                      |                  |               |
+                      |         +--------v---------+     |
+                      |         |                  |     |
+                      |         |    Subnets       |     |
+                      |         |     (Public VPC) |     |
+                      |         |                  |     |
+                      |         +------------------+     |
+                      |                  |               |
+                      |         +--------v---------+     |
+                      |         |                  |     |
+                      |         |        VPC       |     |
+                      |         |                  |     |
+                      |         +------------------+     |
+                      |                  |               |
+                      |         +--------v---------+     |
+                      |         |                  |     |
+                      |         |     ALB          |     |
+                      |         | (Application)    |     |
+                      |         |                  |     |
+                      |         +--------+---------+     |
+                      |                  |               |
+                      |         +--------v---------+     |
+                      |         |                  |     |
+                      |         |     EC2          |     |
+                      |         | (Application)    |     |
+                      |         |                  |     |
+                      |         +--------+---------+     |
+                      |                  |               |
+                      |         +--------v---------+     |
+                      |         |                  |     |
+                      |         |     EC2          |     |
+                      |         |     (MySQL)      |     |
+                      |         |                  |     |
+                      |         +------------------+     |
+                      |                                  |
+                      +------------------+---------------+
+              
+    
 ## Commands to Run
 
 Follow these steps to set up the infrastructure using Terraform:
